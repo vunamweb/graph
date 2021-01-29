@@ -55,6 +55,7 @@ public class CurveGraphView extends View {
 
     int viewHeight, viewWidth;
     int graphHeight, graphWidth, graphPadding = 32, graphPaddingText = 30, grapHeightTextRotate = 250;
+    float rotate = 70f;
 
     private Path vPath = new Path();
     private Path hPath = new Path();
@@ -390,7 +391,7 @@ public class CurveGraphView extends View {
                 //canvas.scale(1f, -1f, x, graphHeight);
                 canvas.save();
 
-                canvas.rotate(45f, x, graphHeight);
+                canvas.rotate(rotate, x, graphHeight);
 
                 canvas.drawText(gp.getText(), x, graphHeight, paint);
 
