@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         pointMap.addPoint(3, 400, "2020-12-30");
         pointMap.addPoint(4, 150, "2020-12-12");
         pointMap.addPoint(5, 200, "2020-12-12");
+        pointMap.addPoint(6, 220, "2020-12-12");
+        pointMap.addPoint(7, 210, "2020-12-12");
+        pointMap.addPoint(8, 200, "2020-12-12");
+        pointMap.addPoint(9, 240, "2020-12-12");
+        pointMap.addPoint(10, 200, "2020-12-12");
+        pointMap.addPoint(11, 100, "2020-12-12");
+        pointMap.addPoint(12, 200, "2020-12-12");
+
 
         final GraphData gd = GraphData.builder(this)
                 .setPointMap(pointMap)

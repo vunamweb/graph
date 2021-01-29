@@ -54,7 +54,7 @@ public class CurveGraphView extends View {
     private GraphData[] graphDataArray = {};
 
     int viewHeight, viewWidth;
-    int graphHeight, graphWidth, graphPadding = 32, graphPaddingText = 30;
+    int graphHeight, graphWidth, graphPadding = 32, graphPaddingText = 30, grapHeightTextRotate = 250;
 
     private Path vPath = new Path();
     private Path hPath = new Path();
@@ -252,14 +252,14 @@ public class CurveGraphView extends View {
 
         drawGraphPaths(canvas);
         drawGraphPoints(canvas);
-        //drawGradients(canvas);
+        drawGradients(canvas);
     }
 
     @Override
     public boolean onTouchEvent( MotionEvent event) {
         super.onTouchEvent(event);
         Log.d ("motionEvent", event.toString());
-        listPain.get(0).setColor(Color.WHITE);
+        //listPain.get(0).setColor(Color.WHITE);
         //yAxisScalePaint.setColor(Color.WHITE);
         this.postInvalidate();
         return true;
@@ -356,10 +356,13 @@ public class CurveGraphView extends View {
 
     @SuppressLint("ResourceAsColor")
     private void drawGraphPoints(Canvas canvas) {
+        //canvas.rotate(45f);
+
         for (int i = 0; i < graphPointsList.size(); i++) {
             for (GraphPoint gp : graphPointsList.get(i)) {
                 Paint p = graphPointPaintsList.get(i);
                 p.setStyle(Paint.Style.FILL);
+                canvas.rotate(0f, gp.getX(), gp.getY());
                 canvas.drawCircle(gp.getX(), gp.getY(), graphDataArray[i].getPointRadius(), p);
                 p.setStyle(Paint.Style.STROKE);
 
@@ -382,9 +385,17 @@ public class CurveGraphView extends View {
 
                 //paint = yAxisScalePaint;
 
-                listPain.add(paint);
+                //listPain.add(paint);
+
+                //canvas.scale(1f, -1f, x, graphHeight);
+                canvas.save();
+
+                canvas.rotate(45f, x, graphHeight);
 
                 canvas.drawText(gp.getText(), x, graphHeight, paint);
+
+                canvas.restore();
+                //canvas.res;
                 canvas.drawText(String.valueOf(gp.getValue()), x - graphPaddingText, y - graphPaddingText, paint);
             }
         }
@@ -541,7 +552,7 @@ public class CurveGraphView extends View {
         viewHeight = getMeasuredHeight() - getPaddingTop() - getPaddingTop();
         viewWidth = getMeasuredWidth() - getPaddingStart() - getPaddingEnd();
 
-        graphHeight = viewHeight - graphPadding;
+        graphHeight = viewHeight - grapHeightTextRotate; //graphPadding;
         graphWidth = viewWidth - graphPadding;
 
         setMeasuredDimension(viewWidth, viewHeight);
