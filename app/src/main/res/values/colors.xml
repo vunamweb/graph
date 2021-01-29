@@ -158,6 +158,6 @@
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
 
-    <color name="gradientStartColor2">#A9304FFE</color>
-    <color name="gradientEndColor2">#DA1976D2</color>
+    <color name="gradientStartColor2">#d1e7da</color>
+    <color name="gradientEndColor2">#f0f4f3</color>
 </resources>

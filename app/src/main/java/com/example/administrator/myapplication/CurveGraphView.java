@@ -245,8 +245,8 @@ public class CurveGraphView extends View {
         this.canvas = canvas;
         drawAxis(canvas);
         if (!(graphDataArray.length == 0 || noDataInGraph())) {
-            drawVertGuideline(canvas);
-            drawHorizontalGuidelines(canvas);
+            //drawVertGuideline(canvas);
+            //drawHorizontalGuidelines(canvas);
         }
         //drawScaleText(canvas);
         //drawInterval(canvas);

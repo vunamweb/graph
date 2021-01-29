@@ -10,6 +10,7 @@ import com.example.administrator.myapplication.models.PointMap;
 public class MainActivity extends AppCompatActivity {
     CurveGraphView curveGraphView2;
     CurveGraphView curveGraphView;
+    int pointRadius = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 .setGraphStroke(R.color.Black)
                 .setGraphGradient(R.color.gradientStartColor2, R.color.gradientEndColor2)
                 .animateLine(true)
-                .setPointColor(R.color.Red)
-                .setPointRadius(5)
+                .setPointColor(R.color.Green)
+                .setPointRadius(pointRadius)
                 .build();
 
         /*PointMap p2 = new PointMap();
